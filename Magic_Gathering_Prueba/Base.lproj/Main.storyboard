@@ -22,7 +22,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Ir a lista de cartas"/>
                                 <connections>
                                     <action selector="OnTapGoToCards:" destination="zle-1k-buS" eventType="touchUpInside" id="a9V-FK-nwU"/>
-                                    <segue destination="i1c-yz-0e1" kind="presentation" identifier="GoToListCards" modalPresentationStyle="automatic" id="p4H-dj-RJH"/>
+                                    <segue destination="h9d-7E-VOK" kind="presentation" identifier="GoToListCards" modalPresentationStyle="fullScreen" id="Yb3-M4-Qmf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realizado por:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxi-tR-f4D">
@@ -97,37 +97,115 @@
             </objects>
             <point key="canvasLocation" x="-623.1884057971015" y="-13.392857142857142"/>
         </scene>
-        <!--List_Magic-->
-        <scene sceneID="9Ub-IB-SZY">
+        <!--List Card Controller-->
+        <scene sceneID="6fl-gb-Lmf">
             <objects>
-                <tableViewController title="List_Magic" id="i1c-yz-0e1" customClass="ListCardController" customModule="Magic_Gathering_Prueba" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PhO-21-XAN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController id="h9d-7E-VOK" customClass="ListCardController" customModule="Magic_Gathering_Prueba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XM5-db-1l3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cxV-LM-00b">
+                                <rect key="frame" x="15" y="59" width="384" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MagicCardCell" rowHeight="100" id="DAF-ep-COJ" customClass="MagicCardTableViewCell" customModule="Magic_Gathering_Prueba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="384" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DAF-ep-COJ" id="hRJ-tc-VuH">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-z4-hKa">
+                                                    <rect key="frame" x="0.0" y="5" width="384" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre carta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nx-JZ-mdi">
+                                                            <rect key="frame" x="15" y="8" width="354" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tipo carta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxG-Nt-Igz">
+                                                            <rect key="frame" x="15" y="34" width="197" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Coste Mana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcI-qQ-UBb">
+                                                            <rect key="frame" x="15" y="61" width="197" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poder:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taq-Vi-iiW">
+                                                            <rect key="frame" x="300" y="61" width="50" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn7-Bh-GWY">
+                                                            <rect key="frame" x="358" y="61" width="11" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="pn7-Bh-GWY" secondAttribute="bottom" constant="8" id="63j-MF-AE2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="VcI-qQ-UBb" secondAttribute="bottom" constant="8" id="8h2-rs-Wll"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1nx-JZ-mdi" secondAttribute="trailing" constant="15" id="BmY-LQ-t8p"/>
+                                                        <constraint firstItem="fxG-Nt-Igz" firstAttribute="leading" secondItem="NFL-z4-hKa" secondAttribute="leading" constant="15" id="KjW-BK-vG2"/>
+                                                        <constraint firstItem="1nx-JZ-mdi" firstAttribute="top" secondItem="NFL-z4-hKa" secondAttribute="top" constant="8" id="Lcn-vq-k0z"/>
+                                                        <constraint firstItem="1nx-JZ-mdi" firstAttribute="leading" secondItem="NFL-z4-hKa" secondAttribute="leading" constant="15" id="Quc-jt-UPn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pn7-Bh-GWY" secondAttribute="trailing" constant="15" id="gIr-k0-3cB"/>
+                                                        <constraint firstItem="VcI-qQ-UBb" firstAttribute="leading" secondItem="NFL-z4-hKa" secondAttribute="leading" constant="15" id="jmP-9W-Uf9"/>
+                                                        <constraint firstItem="VcI-qQ-UBb" firstAttribute="top" secondItem="fxG-Nt-Igz" secondAttribute="bottom" constant="6" id="kVr-cR-cUn"/>
+                                                        <constraint firstAttribute="bottom" secondItem="taq-Vi-iiW" secondAttribute="bottom" constant="8" id="laK-El-dOC"/>
+                                                        <constraint firstItem="pn7-Bh-GWY" firstAttribute="leading" secondItem="taq-Vi-iiW" secondAttribute="trailing" constant="8" id="oDp-YJ-BLy"/>
+                                                        <constraint firstItem="fxG-Nt-Igz" firstAttribute="top" secondItem="1nx-JZ-mdi" secondAttribute="bottom" constant="5" id="oNi-FA-vV5"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NFL-z4-hKa" firstAttribute="leading" secondItem="hRJ-tc-VuH" secondAttribute="leading" id="K4W-cK-Q1t"/>
+                                                <constraint firstAttribute="trailing" secondItem="NFL-z4-hKa" secondAttribute="trailing" id="Rgq-n4-oJU"/>
+                                                <constraint firstAttribute="bottom" secondItem="NFL-z4-hKa" secondAttribute="bottom" constant="5" id="wYj-Em-fDT"/>
+                                                <constraint firstItem="NFL-z4-hKa" firstAttribute="top" secondItem="hRJ-tc-VuH" secondAttribute="top" constant="5" id="wrq-RD-d2R"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cardManaCost" destination="VcI-qQ-UBb" id="8D2-4n-1L6"/>
+                                            <outlet property="cardName" destination="1nx-JZ-mdi" id="beM-aq-dXQ"/>
+                                            <outlet property="cardPowerValue" destination="pn7-Bh-GWY" id="8ft-Y3-A60"/>
+                                            <outlet property="cardType" destination="fxG-Nt-Igz" id="Vob-Ec-MnI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h9d-7E-VOK" id="bxf-hX-OjQ"/>
+                                    <outlet property="delegate" destination="h9d-7E-VOK" id="4DD-Q9-dS7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xKh-Pd-z6l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xcu-Ch-JGz">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xcu-Ch-JGz" id="8NY-ua-s0N">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="i1c-yz-0e1" id="xNV-F7-obP"/>
-                            <outlet property="delegate" destination="i1c-yz-0e1" id="4XO-gf-QkA"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="13W-wI-Ppp"/>
+                        <constraints>
+                            <constraint firstItem="xKh-Pd-z6l" firstAttribute="trailing" secondItem="cxV-LM-00b" secondAttribute="trailing" constant="15" id="Bia-su-HxH"/>
+                            <constraint firstItem="cxV-LM-00b" firstAttribute="bottom" secondItem="xKh-Pd-z6l" secondAttribute="bottom" constant="15" id="V50-Kq-foe"/>
+                            <constraint firstItem="cxV-LM-00b" firstAttribute="leading" secondItem="xKh-Pd-z6l" secondAttribute="leading" constant="15" id="X2o-W2-4hR"/>
+                            <constraint firstItem="cxV-LM-00b" firstAttribute="top" secondItem="xKh-Pd-z6l" secondAttribute="top" constant="15" id="ilg-m1-qiK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="g4w-hY-uZJ"/>
                     <connections>
-                        <segue destination="w3h-20-Jmc" kind="presentation" identifier="GoToCardDetail" id="X6u-wf-qGK"/>
+                        <segue destination="w3h-20-Jmc" kind="presentation" identifier="GoToSelectedCardData" id="e9t-bu-R10"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mEp-ME-S7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9kV-X5-tVk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="365" y="-13"/>
+            <point key="canvasLocation" x="343.47826086956525" y="-13.392857142857142"/>
         </scene>
         <!--Detail_Magic_Card-->
         <scene sceneID="wKA-3U-KI0">
@@ -136,6 +214,22 @@
                     <view key="view" contentMode="scaleToFill" id="Vw2-fx-lpM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Título tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwk-pZ-GjO">
+                                <rect key="frame" x="159" y="438" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9s-mp-hhg">
+                                <rect key="frame" x="0.0" y="14" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Detalle de la tarjeta" id="KmE-D2-73f"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eLo-uF-NAu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -149,6 +243,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -52,9 +52,9 @@ class PresenttationContrtoller: UIViewController {
         }
     }
 
-    @IBAction func OnTapGoToCards(_ sender: UIButton) {
+    @IBAction func OnTapGoToCards(_ sender: Any) {
         performSegue(withIdentifier: "GoToListCards", sender: self)
-        print("Pulsado el botón")
+        print("Navegando a listado de cartas")
     }
     
 }
