@@ -33,7 +33,9 @@ class ListCardController: UIViewController, UITableViewDataSource, UITableViewDe
                     cardTableView?.reloadData()//recarga de la tabla
                     CacheVariablesHelper.Instantiate.SetListCard(listCardLoaded : cardsMagicData!)
                 }
-                catch {}
+                catch {
+                    print("Error (ListCardController/SetListCardsData): \(error) ")
+                }
             }
         }
     }
