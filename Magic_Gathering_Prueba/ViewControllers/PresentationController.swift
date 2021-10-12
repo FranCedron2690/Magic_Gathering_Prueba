@@ -17,7 +17,7 @@ class PresenttationContrtoller: UIViewController {
     //Static variables
     let authorName = "Francisco Jesús Cedrón Guillermo"
     let mailAuthor = "fran.j2690@hotmail.com"
-    let dateRealizationSaved = "2016/10/10 13:00"
+    let dateRealizationSaved = "2016/10/12 20:35"
     
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class PresenttationContrtoller: UIViewController {
     {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let someDateTime = formatter.date(from: "2016/10/10 13:00")
+        let someDateTime = formatter.date(from: dateRealizationSaved)
         
         if (someDateTime != nil)
         {
