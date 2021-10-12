@@ -30,12 +30,21 @@ class CardDetailController: UIViewController {
     func SetImageCard ()
     {
         nameCardDictionary = cardData?.name;
-        imageCardImage?.image = CacheVariablesHelper.DataCacheVariables.GetImageCardByName(nameCard: nameCardDictionary!)
+        imageCardImage?.image = CacheVariablesHelper.Instantiate.GetImageCardByName(nameCard: nameCardDictionary!)
         
         if (imageCardImage?.image == nil && cardData?.imageURL != nil)
         {
-            let urlImage : URL = URL(string: cardData?.imageURL as! String )!
-            downloadImage(from: urlImage)
+            Task.init{
+                do{
+                    let dataReceived = try await WebServiceManager.Instantiate.GetDataRequest(urlWebService: cardData?.imageURL as! String, controllerUsed: self)
+                    let imageCard = UIImage(data: dataReceived)
+                    imageCardImage.image = imageCard
+                    CacheVariablesHelper.Instantiate.AddImageCard(nameCard: (nameCardDictionary!), imageCardUI: imageCard!)
+                }
+                catch {
+                    print("Error (CardDetailController/SetImageCard): \(error) ")
+                }
+            }
         }
     }
     
@@ -53,25 +62,6 @@ class CardDetailController: UIViewController {
         if segue.destination is CardDetailController {
             let vc = segue.destination as? CardDetailController
             cardData = vc?.cardData
-        }
-    }
-    
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    
-    func downloadImage(from url: URL) {
-        print("Download Started")
-        getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            // always update the UI from the main thread
-            DispatchQueue.main.async() { [weak self] in
-                let imageCard = UIImage(data: data)
-                self?.imageCardImage.image = imageCard
-                CacheVariablesHelper.DataCacheVariables.AddImageCard(nameCard: (self?.nameCardDictionary!)!, imageCardUI: imageCard!)
-            }
         }
     }
 }

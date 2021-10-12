@@ -22,6 +22,8 @@
 		5288BC98271485C80037FCCA /* ResponseCardsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5288BC97271485C80037FCCA /* ResponseCardsData.swift */; };
 		52A2F86C27130C54002431F1 /* CardDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2F86B27130C54002431F1 /* CardDetailController.swift */; };
 		52A2F87027130E0B002431F1 /* ListCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2F86F27130E0B002431F1 /* ListCardController.swift */; };
+		52C2CF982715DBDF00504AF7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 52C2CF972715DBDF00504AF7 /* Alamofire */; };
+		52C2CF9A2715DCF800504AF7 /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C2CF992715DCF800504AF7 /* WebServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		5288BC97271485C80037FCCA /* ResponseCardsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCardsData.swift; sourceTree = "<group>"; };
 		52A2F86B27130C54002431F1 /* CardDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailController.swift; sourceTree = "<group>"; };
 		52A2F86F27130E0B002431F1 /* ListCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardController.swift; sourceTree = "<group>"; };
+		52C2CF992715DCF800504AF7 /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C2CF982715DBDF00504AF7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				5283D9912715A82B00162EDD /* CacheVariablesHelper.swift */,
+				52C2CF992715DCF800504AF7 /* WebServiceManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -201,6 +206,9 @@
 			dependencies = (
 			);
 			name = Magic_Gathering_Prueba;
+			packageProductDependencies = (
+				52C2CF972715DBDF00504AF7 /* Alamofire */,
+			);
 			productName = Magic_Gathering_Prueba;
 			productReference = 5221B5462712EB8D00836CF4 /* Magic_Gathering_Prueba.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +281,9 @@
 				Base,
 			);
 			mainGroup = 5221B53D2712EB8D00836CF4;
+			packageReferences = (
+				52C2CF962715DBDF00504AF7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 5221B5472712EB8D00836CF4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -316,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C2CF9A2715DCF800504AF7 /* WebServiceManager.swift in Sources */,
 				5288BC98271485C80037FCCA /* ResponseCardsData.swift in Sources */,
 				5221B54A2712EB8D00836CF4 /* AppDelegate.swift in Sources */,
 				5221B54C2712EB8D00836CF4 /* SceneDelegate.swift in Sources */,
@@ -690,6 +702,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52C2CF962715DBDF00504AF7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.4.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52C2CF972715DBDF00504AF7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52C2CF962715DBDF00504AF7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5221B53E2712EB8D00836CF4 /* Project object */;
 }

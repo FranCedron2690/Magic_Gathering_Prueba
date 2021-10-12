@@ -7,12 +7,12 @@
 
 import UIKit
 
-class CacheVariablesHelper {
+class CacheVariablesHelper: NSObject {
     
     //Singleton
-    static let DataCacheVariables = CacheVariablesHelper()
+    static let Instantiate = CacheVariablesHelper()
     
-    private init() {}
+    override private init() {}
     //
     
     private var cardsMagicData : MagicCardModel? = nil

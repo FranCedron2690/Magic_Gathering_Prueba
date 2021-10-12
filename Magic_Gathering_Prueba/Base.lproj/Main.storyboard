@@ -203,6 +203,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="c6X-4B-pcJ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cardTableView" destination="cxV-LM-00b" id="FAz-yc-RZL"/>
                         <segue destination="w3h-20-Jmc" kind="show" identifier="GoToSelectedCardData" id="gj1-eI-xPc"/>
                     </connections>
                 </viewController>

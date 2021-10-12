@@ -9,6 +9,7 @@ import UIKit
 
 class ListCardController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var cardTableView: UITableView!
     var cardsMagicData : MagicCardModel?
     var selectedCard : Card?
 
@@ -20,19 +21,19 @@ class ListCardController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func SetListCardsData ()
     {
-        cardsMagicData = CacheVariablesHelper.DataCacheVariables.GetListCard()
+        cardsMagicData = CacheVariablesHelper.Instantiate.GetListCard()
         
         if (cardsMagicData == nil)
         {
-            let decoder = JSONDecoder()
-            do{
-                let data = try decoder.decode(MagicCardModel.self, from: ResponseCardsData.jsonDataCardsJsonResponseWeb)
-                cardsMagicData = data
-                CacheVariablesHelper.DataCacheVariables.SetListCard(listCardLoaded: cardsMagicData!)
-                print ("Cargadas las cartas correctamente!!")
-            }
-            catch {
-                print(error)
+            Task.init{
+                do{
+                    let dataReceived = try await WebServiceManager.Instantiate.GetDataRequest(urlWebService: "https://api.magicthegathering.io/v1/cards", controllerUsed: self)
+                    let decoder = JSONDecoder()
+                    cardsMagicData = try decoder.decode(MagicCardModel.self, from: dataReceived)//decode de los datos recibidos
+                    cardTableView?.reloadData()//recarga de la tabla
+                    CacheVariablesHelper.Instantiate.SetListCard(listCardLoaded : cardsMagicData!)
+                }
+                catch {}
             }
         }
     }
@@ -42,17 +43,28 @@ class ListCardController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        var numberRows = 0
+        
+        if (cardsMagicData != nil)
+        {
+            numberRows = cardsMagicData!.cards.count
+        }
+            
         // #warning Incomplete implementation, return the number of rows
-        return cardsMagicData!.cards.count
+        return numberRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MagicCardCell") as! MagicCardTableViewCell
         
-        cell.cardNameLabel.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].name;
-        cell.cardTypeLabel.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].type;
-        cell.cardManaCostLabel.text = cardsMagicData!.cards[indexPath.row].manaCost;
-        cell.cardPowerValueLabel.text = cardsMagicData!.cards[indexPath.row].power;
+        if (cardsMagicData != nil)
+        {
+            cell.cardNameLabel.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].name;
+            cell.cardTypeLabel.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].type;
+            cell.cardManaCostLabel.text = cardsMagicData!.cards[indexPath.row].manaCost;
+            cell.cardPowerValueLabel.text = cardsMagicData!.cards[indexPath.row].power;
+        }
         
         return cell
     }
