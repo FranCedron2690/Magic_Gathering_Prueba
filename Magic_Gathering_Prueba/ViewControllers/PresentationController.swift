@@ -53,7 +53,7 @@ class PresenttationContrtoller: UIViewController {
     }
 
     @IBAction func OnTapGoToCards(_ sender: Any) {
-        performSegue(withIdentifier: "GoToListCards", sender: self)
+        self.performSegue(withIdentifier: "GoToListCards", sender: self)
         print("Navegando a listado de cartas")
     }
     

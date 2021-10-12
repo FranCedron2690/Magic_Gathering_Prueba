@@ -9,10 +9,10 @@ import UIKit
 
 class MagicCardTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cardName: UILabel!
-    @IBOutlet weak var cardType: UILabel!
-    @IBOutlet weak var cardManaCost: UILabel!
-    @IBOutlet weak var cardPowerValue: UILabel!
+    @IBOutlet weak var cardNameLabel: UILabel!
+    @IBOutlet weak var cardTypeLabel: UILabel!
+    @IBOutlet weak var cardManaCostLabel: UILabel!
+    @IBOutlet weak var cardPowerValueLabel: UILabel!
     
     
     override func awakeFromNib() {

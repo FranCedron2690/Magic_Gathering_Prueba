@@ -15,24 +15,27 @@ class ListCardController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let decoder = JSONDecoder()
-        do{
-            let data = try decoder.decode(MagicCardModel.self, from: ResponseCardsData.jsonDataCardsJsonResponseWeb)
-            cardsMagicData = data
-            print ("Cargadas las cartas correctamente!!")            
-        }
-        catch {
-            print(error)
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        SetListCardsData ()
     }
-
-    // MARK: - Table view data source
+    
+    func SetListCardsData ()
+    {
+        cardsMagicData = CacheVariablesHelper.DataCacheVariables.GetListCard()
+        
+        if (cardsMagicData == nil)
+        {
+            let decoder = JSONDecoder()
+            do{
+                let data = try decoder.decode(MagicCardModel.self, from: ResponseCardsData.jsonDataCardsJsonResponseWeb)
+                cardsMagicData = data
+                CacheVariablesHelper.DataCacheVariables.SetListCard(listCardLoaded: cardsMagicData!)
+                print ("Cargadas las cartas correctamente!!")
+            }
+            catch {
+                print(error)
+            }
+        }
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1//Solo una sección
@@ -46,15 +49,18 @@ class ListCardController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MagicCardCell") as! MagicCardTableViewCell
         
-        cell.cardName.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].name;
-        cell.cardType.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].type;
-        cell.cardManaCost.text = cardsMagicData!.cards[indexPath.row].manaCost;
-        cell.cardPowerValue.text = cardsMagicData!.cards[indexPath.row].power;
+        cell.cardNameLabel.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].name;
+        cell.cardTypeLabel.text = cardsMagicData!.cards[indexPath.row].foreignNames?[1].type;
+        cell.cardManaCostLabel.text = cardsMagicData!.cards[indexPath.row].manaCost;
+        cell.cardPowerValueLabel.text = cardsMagicData!.cards[indexPath.row].power;
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Quitar la selección de la celda seleccionada
+        tableView.deselectRow(at: indexPath, animated: false)
+        
         //Guardo la carta seleccionada
         selectedCard = cardsMagicData!.cards[indexPath.row]
         

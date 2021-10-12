@@ -16,6 +16,7 @@
 		5221B56B2712EB8F00836CF4 /* Magic_Gathering_PruebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5221B56A2712EB8F00836CF4 /* Magic_Gathering_PruebaUITests.swift */; };
 		5221B56D2712EB8F00836CF4 /* Magic_Gathering_PruebaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5221B56C2712EB8F00836CF4 /* Magic_Gathering_PruebaUITestsLaunchTests.swift */; };
 		5221B57A2712EF1700836CF4 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5221B5792712EF1700836CF4 /* PresentationController.swift */; };
+		5283D9922715A82B00162EDD /* CacheVariablesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283D9912715A82B00162EDD /* CacheVariablesHelper.swift */; };
 		528899E127142C600014F557 /* MagicCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528899E027142C600014F557 /* MagicCardTableViewCell.swift */; };
 		528899E427145DC30014F557 /* MagicCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528899E327145DC30014F557 /* MagicCardModel.swift */; };
 		5288BC98271485C80037FCCA /* ResponseCardsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5288BC97271485C80037FCCA /* ResponseCardsData.swift */; };
@@ -54,6 +55,7 @@
 		5221B56A2712EB8F00836CF4 /* Magic_Gathering_PruebaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic_Gathering_PruebaUITests.swift; sourceTree = "<group>"; };
 		5221B56C2712EB8F00836CF4 /* Magic_Gathering_PruebaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic_Gathering_PruebaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5221B5792712EF1700836CF4 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		5283D9912715A82B00162EDD /* CacheVariablesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheVariablesHelper.swift; sourceTree = "<group>"; };
 		528899E027142C600014F557 /* MagicCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCardTableViewCell.swift; sourceTree = "<group>"; };
 		528899E327145DC30014F557 /* MagicCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCardModel.swift; sourceTree = "<group>"; };
 		5288BC97271485C80037FCCA /* ResponseCardsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCardsData.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		5288BC95271484A80037FCCA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5283D9912715A82B00162EDD /* CacheVariablesHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				52A2F87027130E0B002431F1 /* ListCardController.swift in Sources */,
 				5221B57A2712EF1700836CF4 /* PresentationController.swift in Sources */,
 				528899E427145DC30014F557 /* MagicCardModel.swift in Sources */,
+				5283D9922715A82B00162EDD /* CacheVariablesHelper.swift in Sources */,
 				528899E127142C600014F557 /* MagicCardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
